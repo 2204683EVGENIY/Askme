@@ -7,6 +7,7 @@
   <div class="mt">
     <%= link_to fa_icon('pencil'), edit_question_path(@question), title: "Изменить вопрос" %>
     <%= button_to fa_icon('trash-o'), question_path(@question), method: :delete, title: "Удалить вопрос", form: {data: {turbo_confirm: 'Точно удалить вопрос?'}} %>
+    <%= link_to fa_icon('eye'), "/questions/#{@question.id}", method: :put, title: "Скрыть вопрос" %>
   </div>
   <p class="mt"> <%= link_to "Все вопросы", questions_path %> </p>
 </div>

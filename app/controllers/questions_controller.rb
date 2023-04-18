@@ -33,6 +33,10 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  def hide
+    debugger
+  end
+
   private
 
   def question_params
