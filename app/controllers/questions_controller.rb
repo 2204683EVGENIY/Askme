@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[update destroy show edit]
+  before_action :set_question, only: %i[update destroy show edit hide]
 
   def create
     question = Question.create(question_params)
@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    @question = Question.new
     @questions = Question.all
   end
 
@@ -34,7 +35,7 @@ class QuestionsController < ApplicationController
   end
 
   def hide
-    debugger
+    @question[:hidden] = true
   end
 
   private
