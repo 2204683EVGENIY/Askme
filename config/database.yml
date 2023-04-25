@@ -22,6 +22,4 @@ test:
 
 production:
   adapter: postgresql
-  user: deploy
-  password: (!2204Zheka1993)
-  database: askme
+  url: <%= ENV.fetch("DATABASE_URL") %>
