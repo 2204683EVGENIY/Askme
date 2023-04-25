@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
-  put '/questions/:id/hide', to: 'questions#hide'
-  resources :questions
+  root to: 'questions#index'
+
+  resources :questions do
+    member do
+      put :hide
+    end
+  end
+
+  resources :users, only: %i[new create]
 end
