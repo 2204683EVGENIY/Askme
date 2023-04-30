@@ -3,7 +3,7 @@ module UsersHelper
     "@#{user.nickname}"
   end
 
-  def interface_color
+  def header_color
     current_user&.navbar_color || User::DEFAULT_NAVBAR_COLOR
   end
 end
