@@ -2,21 +2,22 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[update destroy show edit hide]
 
   def create
-    question = Question.create(question_params)
+    @question = Question.create(question_params)
 
-    redirect_to questions_path, notice: 'Новый вопрос создан!'
+    redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
   end
 
   def update
     @question.update(question_params)
 
-    redirect_to question_path(@question), notice: 'Вопрос сохранен!'
+    redirect_to user_path(@question.user), notice: 'Вопрос сохранен!'
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
 
-    redirect_to questions_path, notice: 'Вопрос удален!'
+    redirect_to user_path(@user), notice: 'Вопрос удален!'
   end
 
   def show
