@@ -10,6 +10,7 @@
  *= require form
  *= require hidden
  *= require message
+ *= require user
  *
  *= require question
  */
