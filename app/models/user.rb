@@ -13,7 +13,7 @@ class User < ApplicationRecord
             format: { with: /\A\w+\z/ }
   validates :navbar_color, presence: true
 
-  has_many :questions
+  has_many :questions, dependent: :delete_all
 
   def downcase_nickname
     nickname.downcase!
