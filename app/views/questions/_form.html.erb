@@ -1,9 +1,8 @@
 <%= form_with model: question do |form| %>
+  <%= form.hidden_field :user_id %>
+  
   <p><%= form.label :body, "Тект вопроса" %></p>
   <p><%= form.text_area :body, rows: 5, class: "form-text-area" %></p>
-
-  <p class="mt"><%= form.label :user_id %></p>
-  <p><%= form.number_field :user_id, class: "form-text-field" %></p>
   
   <div class="mt">
     <p><%= form.submit "Сохранить", class: 'button button-main' %> или
