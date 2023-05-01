@@ -1,7 +1,7 @@
 <div class="user-box">
   <h2 class="title-lg mt-lg"><%= @user.name %></h2>
   <p class="mt mb-lg">
-    <%= link_to fa_icon('pencil'), edit_user_path(current_user.id), title: "Редактировать пользователя" %>
+    <%= link_to fa_icon('pencil'), edit_user_path(@user.id), title: "Редактировать пользователя" %>
   </p>
   <p class="text-bold mb-lg">@<%= @user.nickname %></p>
 </div>
