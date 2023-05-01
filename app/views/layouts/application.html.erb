@@ -17,7 +17,7 @@
       <div>
         <% if current_user.present? %>
           <%= link_to display_nickname(current_user), user_path(current_user.id), class: 'mr-sm' %>
-          <%= button_to 'Выйти', session_path, method: :delete %>
+          <%= button_to fa_icon('reply-all'), session_path, method: :delete, title: "Выйти из профиля" %>
         <% else %>
           <%= link_to "Регистрация", new_user_path, class: 'button button-yellow mr-sm' %>
           <%= link_to "Вход", new_session_path, class: 'button button-yellow' %>
