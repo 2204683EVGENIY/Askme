@@ -11,8 +11,9 @@ class User < ApplicationRecord
             uniqueness: true,
             length: { maximum: 40 },
             format: { with: /\A\w+\z/ }
-
   validates :navbar_color, presence: true
+
+  has_many :questions
 
   def downcase_nickname
     nickname.downcase!
