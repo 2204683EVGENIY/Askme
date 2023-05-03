@@ -1,0 +1,12 @@
+
+<div class="container center">
+  <p class="title-sm">
+    Тут пока ничего не спросили, будь первым!
+  </p>
+
+  <div class="zhdun">
+    <%= image_tag "zhdun.png", alt: "Ждун ждёт", class: 'mt mb' %>
+  </div>
+
+  <%= link_to "Задать вопрос!", new_question_path(user_id: @user.id), class: 'button button-main' %>
+</div>
