@@ -1,14 +1,14 @@
 <div class="text-grey">
-  Автор вопроса: <%= question_author(question) %>
+  <p>Автор вопроса: <%= question_author(question) %></p>
 </div>
 
 <div class="pre-line mb-sm <%= 'hidden' if question.hidden? %>" >
-  <%= question.body %>
+  <%= sanitize question.body %>
 </div>
 
 <% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
-    <%= question.answer %>
+    <%= sanitize question.answer %>
   </div>
 <% end %>
 
