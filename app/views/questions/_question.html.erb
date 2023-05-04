@@ -1,3 +1,7 @@
+<div class="text-grey">
+  Автор вопроса: <%= question_author(question) %>
+</div>
+
 <div class="pre-line mb-sm <%= 'hidden' if question.hidden? %>" >
   <%= question.body %>
 </div>
