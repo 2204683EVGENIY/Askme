@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_secure_password
 
   before_validation :downcase_nickname
+  before_validation :downcase_email
 
   validates :email,
             presence: true,
@@ -17,6 +18,12 @@ class User < ApplicationRecord
   validates :navbar_color, presence: true
 
   has_many :questions, dependent: :delete_all
+
+  private
+
+  def downcase_email
+    email.downcase
+  end
 
   def downcase_nickname
     nickname.downcase!
