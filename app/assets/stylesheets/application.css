@@ -11,6 +11,8 @@
  *= require hidden
  *= require message
  *= require user
+ *= require users
+ *= require untils
  *
  *= require question
  */
