@@ -5,7 +5,7 @@ module QuestionsHelper
     if question.author == current_user
       "Aвтор - Вы"
     else
-      link_to "@#{question.author.nickname}", user_path(question.author_id)
+      link_to "@#{question.author.nickname}", user_path(question.author.nickname)
     end
   end
 end
