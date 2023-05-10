@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = User.find_by(nickname: params[:nickname]).questions.build
+    @question = User.find_by(nickname: params[:user_id]).questions.build
   end
 
   def edit
