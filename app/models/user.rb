@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   DEFAULT_NAVBAR_COLOR = '#370617'.freeze
+  VALID_NAVBAR_COLOR = /\A#(\h{3,6})\z/.freeze
 
   has_secure_password
 
@@ -15,7 +16,7 @@ class User < ApplicationRecord
             uniqueness: true,
             length: { maximum: 40 },
             format: { with: /\A\w+\z/ }
-  validates :navbar_color, format: { with: /\A#(\h{3,6})\z/ }, presence: true
+  validates :navbar_color, format: { with: VALID_NAVBAR_COLOR }, presence: true
 
   has_many :questions, dependent: :delete_all
 
