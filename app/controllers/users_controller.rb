@@ -26,12 +26,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user&.questions&.order(created_at: :desc)
+    @questions = User.find_by!(nickname: params[:nickname]).questions.order(created_at: :desc)
     @question = Question.new(user: @user)
-
-    if @questions == nil
-      render file: 'public/404.html'
-    end
   end
 
   def update
