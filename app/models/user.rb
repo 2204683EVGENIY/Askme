@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email,
             presence: true,
             uniqueness: true,
-            format: { with: /\A[\w\d]+@[\w\d]+\.[\w]+/ }
+            format: { with: /\A[\w]+@[\w]+\.[\w]+\z/ }
   validates :nickname,
             presence: true,
             uniqueness: true,
