@@ -2,12 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
 
-  def new
-    session[:current_time] = Time.now
-
-    @user = User.new
-  end
-
   def create
     @user = User.new(user_params)
 
@@ -22,7 +16,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+
+    session.delete(:user_id)
+
+    redirect_to root_path, notice: 'Пользователь удален!'
+  end
+
   def edit
+  end
+
+  def new
+    session[:current_time] = Time.now
+
+    @user = User.new
   end
 
   def show
@@ -40,14 +48,6 @@ class UsersController < ApplicationController
 
       render :edit
     end
-  end
-
-  def destroy
-    @user.destroy
-
-    session.delete(:user_id)
-
-    redirect_to root_path, notice: 'Пользователь удален!'
   end
 
   private

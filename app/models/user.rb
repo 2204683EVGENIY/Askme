@@ -1,8 +1,10 @@
 class User < ApplicationRecord
+  include Gravtastic
+
   DEFAULT_NAVBAR_COLOR = '#370617'.freeze
   VALID_NAVBAR_COLOR = /\A#\h{3}{1,2}\z/.freeze
 
-  has_secure_password
+  has_many :questions, dependent: :delete_all
 
   before_validation :downcase_nickname
   before_validation :downcase_email
@@ -18,10 +20,9 @@ class User < ApplicationRecord
             format: { with: /\A\w+\z/ }
   validates :navbar_color, format: { with: VALID_NAVBAR_COLOR }, presence: true
 
-  has_many :questions, dependent: :delete_all
-
-  include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
+
+  has_secure_password
 
   private
 

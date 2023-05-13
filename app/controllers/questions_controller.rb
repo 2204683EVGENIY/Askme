@@ -20,14 +20,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def update
-    question_params = params.require(:question).permit(:body, :answer)
-
-    @question.update(question_params)
-
-    redirect_to user_path(@question.user.nickname), notice: 'Вопрос сохранен!'
-  end
-
   def destroy
     @user = @question.user
     @question.destroy
@@ -35,8 +27,13 @@ class QuestionsController < ApplicationController
     redirect_to user_path(@user.nickname), notice: 'Вопрос удален!'
   end
 
-  def show
-    @question = Question.find(params[:id])
+  def edit
+  end
+
+  def hide
+    @question.update(hidden: true)
+
+    redirect_to user_path(@question.user.nickname), notice: 'Вопрос скрыт!'
   end
 
   def index
@@ -48,13 +45,16 @@ class QuestionsController < ApplicationController
     @question = User.find_by(nickname: params[:user_id]).questions.build
   end
 
-  def edit
+  def show
+    @question = Question.find(params[:id])
   end
 
-  def hide
-    @question.update(hidden: true)
+  def update
+    question_params = params.require(:question).permit(:body, :answer)
 
-    redirect_to user_path(@question.user.nickname), notice: 'Вопрос скрыт!'
+    @question.update(question_params)
+
+    redirect_to user_path(@question.user.nickname), notice: 'Вопрос сохранен!'
   end
 
   private
