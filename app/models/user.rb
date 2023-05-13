@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   DEFAULT_NAVBAR_COLOR = '#370617'.freeze
-  VALID_NAVBAR_COLOR = /\A#(\h{3,6})\z/.freeze
+  VALID_NAVBAR_COLOR = /\A#\h{3}{1,2}\z/.freeze
 
   has_secure_password
 
