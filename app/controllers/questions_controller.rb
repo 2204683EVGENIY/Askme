@@ -10,11 +10,11 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if @question.save
-      redirect_to user_path(@question.user.nickname), notice: 'Новый вопрос создан!'
+      redirect_to user_path(@question.user.nickname), notice: "Новый вопрос создан!"
     else
       @user = @question.user
 
-      flash.now[:alert] = 'Ошибка при создании вопроса!'
+      flash.now[:alert] = "Ошибка при создании вопроса!"
 
       render :new
     end
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
     @user = @question.user
     @question.destroy
 
-    redirect_to user_path(@user.nickname), notice: 'Вопрос удален!'
+    redirect_to user_path(@user.nickname), notice: "Вопрос удален!"
   end
 
   def edit
@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
   def hide
     @question.update(hidden: true)
 
-    redirect_to user_path(@question.user.nickname), notice: 'Вопрос скрыт!'
+    redirect_to user_path(@question.user.nickname), notice: "Вопрос скрыт!"
   end
 
   def index
@@ -54,7 +54,7 @@ class QuestionsController < ApplicationController
 
     @question.update(question_params)
 
-    redirect_to user_path(@question.user.nickname), notice: 'Вопрос сохранен!'
+    redirect_to user_path(@question.user.nickname), notice: "Вопрос сохранен!"
   end
 
   private

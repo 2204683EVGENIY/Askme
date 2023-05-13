@@ -2,31 +2,31 @@
   <h2 class="title-lg mt-lg"><%= @user.name %></h2>
 
   <div class="mt">
-    <%= render partial: 'users/user_avatar', locals: {user: @user} %>
+    <%= render partial: "users/user_avatar", locals: {user: @user} %>
   </div>
 
   <% if current_user == @user %>
     <p class="mt mb-lg">
-      <%= link_to fa_icon('pencil'), edit_user_path(@user.nickname), title: "Редактировать пользователя" %>
+      <%= link_to fa_icon("pencil"), edit_user_path(@user.nickname), title: "Редактировать пользователя" %>
     </p>
   <% end %>
   
-  <p class="text-bold mb-lg <%= 'mt' if current_user != @user %>">@<%= @user.nickname %></p>
+  <p class="text-bold mb-lg <%= "mt" if current_user != @user %>">@<%= @user.nickname %></p>
 </div>
 
 <% if @questions.present? %>
   <div class="container">
     <%= link_to "Спроси меня", new_question_path(user_id: @user.id),
-      class: 'button button-yellow' %>
+      class: "button button-yellow" %>
     <div class="mt">
-      <%= render partial: 'questions/form', locals: {question: @question} %>
+      <%= render partial: "questions/form", locals: {question: @question} %>
     </div>
   </div>
 
   <div class="container mt-sm">
     <h2 class="title-lg">
       <%= @questions.count %>
-      <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
+      <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>
     </h2>
   </div>
 
@@ -36,5 +36,5 @@
     </div>
   <% end %>
 <% else %>
-  <%= render 'empty_page', user: @user %>
+  <%= render "empty_page", user: @user %>
 <% end %>
