@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   DEFAULT_NAVBAR_COLOR = '#370617'.freeze
   VALID_NAVBAR_COLOR = /\A#\h{3}{1,2}\z/.freeze
+  VALID_EMAIL = /\A\w+@\w+\.\w+\z/.freeze
 
   has_many :questions, dependent: :delete_all
 
@@ -12,7 +13,7 @@ class User < ApplicationRecord
   validates :email,
             presence: true,
             uniqueness: true,
-            format: { with: /\A[\w]+@[\w]+\.[\w]+\z/ }
+            format: { with: VALID_EMAIL }
   validates :nickname,
             presence: true,
             uniqueness: true,
