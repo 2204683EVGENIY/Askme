@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :delete_all
 
+  has_secure_password
+
   before_validation :downcase_nickname
   before_validation :downcase_email
 
@@ -22,8 +24,6 @@ class User < ApplicationRecord
   validates :navbar_color, format: { with: VALID_NAVBAR_COLOR }, presence: true
 
   gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
-
-  has_secure_password
 
   private
 

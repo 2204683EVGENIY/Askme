@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '3.2.1'
 
@@ -15,6 +15,7 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'sqlite3', '~> 1.4'
 gem 'turbo-rails'
+gem 'where_exists', '~> 2.0'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]

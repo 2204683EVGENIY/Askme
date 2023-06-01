@@ -1,4 +1,10 @@
 module QuestionsHelper
+  def text_with_hashtags(text)
+    strip_tags(text).gsub(Hashtag::REGEXP) do |ht|
+      link_to ht, hashtag_path(ht.delete("#").downcase)
+    end
+  end
+
   def question_author(question)
     return "Таинственная персона" unless question.author.present?
 

@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
 
     @question.author = current_user
 
-    if @question.save
+    if QuestionSave.(question: @question, params: question_params)
       redirect_to user_path(@question.user.nickname), notice: "Новый вопрос создан!"
     else
       @user = @question.user
@@ -37,8 +37,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(created_at: :desc).last(10)
+    @questions = Question.includes(:user, :author).order(created_at: :desc).last(10)
     @users = User.order(created_at: :desc).last(10)
+    @hashtags = Hashtag.with_questions
   end
 
   def new
@@ -52,9 +53,15 @@ class QuestionsController < ApplicationController
   def update
     question_params = params.require(:question).permit(:body, :answer)
 
-    @question.update(question_params)
+    if QuestionSave.(question: @question, params: question_params)
+      redirect_to user_path(@question.user.nickname), notice: "Вопрос обновлен!"
+    else
+      @user = @question.user
 
-    redirect_to user_path(@question.user.nickname), notice: "Вопрос сохранен!"
+      flash.now[:alert] = "Ошибка при обновлении вопроса!"
+
+      render :edit
+    end
   end
 
   private
