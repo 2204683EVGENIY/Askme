@@ -1,24 +1,31 @@
-# README
+## goodprogrammermegaaskme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is written for educational purposes.
 
-Things you may want to cover:
+A small analogue of askfm, in which you can ask questions to other users and answer their questions.
 
-* Ruby version
+Actually, this is what the working version looks like, feel free to test it) https://goodprogrammermegaaskme.fun
 
-* System dependencies
+Used as a deployment site https://render.com
 
-* Configuration
+```
+ruby: 3.2.1
 
-* Database creation
+rails: 7.0.4.3
 
-* Database initialization
+app language: russian
+```
 
-* How to run the test suite
+Just copy the repository to your local machine and then using the console go to the project folder
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+app_folder_your_computer_console$ cd goodprogrammermegaaskme
 
-* Deployment instructions
+app_folder_your_computer_console$ bundle install
 
-* ...
+app_folder_your_computer_console$ rails db:migrate
+
+app_folder_your_computer_console$ rails s
+```
+
+After that, the application is available on localhost:3000
