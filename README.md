@@ -6,7 +6,7 @@ A small analogue of askfm, in which you can ask questions to other users and ans
 
 Actually, this is what the working version looks like, feel free to test it) [goodprogrammermegaaskme](https://goodprogrammermegaaskme.fun)
 
-Used as a deployment site https://render.com
+Used as a deployment site [render](https://render.com)
 
 ```
 ruby: 3.2.1
