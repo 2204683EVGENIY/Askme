@@ -4,7 +4,7 @@ This application is written for educational purposes.
 
 A small analogue of askfm, in which you can ask questions to other users and answer their questions.
 
-Actually, this is what the working version looks like, feel free to test it) https://goodprogrammermegaaskme.fun
+Actually, this is what the working version looks like, feel free to test it) [goodprogrammermegaaskme](https://goodprogrammermegaaskme.fun)
 
 Used as a deployment site https://render.com
 
